@@ -7,9 +7,8 @@ public class Bullet : MonoBehaviour
 
     public float Damage;
     public float LifeSpan;
-    [Range(0,1)]
+    [Range(0, 1)]
     public float EnergyCost;
-
     private float _lifeTimeLeft;
 
 
@@ -37,7 +36,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         _lifeTimeLeft -= Time.deltaTime;
-        if (_lifeTimeLeft<=0)
+        if (_lifeTimeLeft <= 0)
         {
             GameControl.GameControlInstance.ResetCombo();
             PoolManager.Instance.StoreBullet(gameObject);

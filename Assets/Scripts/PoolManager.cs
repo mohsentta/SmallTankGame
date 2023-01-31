@@ -22,7 +22,7 @@ public class PoolManager : MonoBehaviour
 
 
     // Use this for initialization
-    void Awake ()
+    void Awake()
     {
         Instance = this;
         for (int i = 0; i < BulletAmountToPool; i++)
@@ -30,7 +30,7 @@ public class PoolManager : MonoBehaviour
             GameObject newBullet = GameObject.Instantiate(Bullet, transform.position, Quaternion.identity);
             newBullet.SetActive(false);
             PooledBullets.Enqueue(newBullet);
-            
+
         }
         for (int i = 0; i < TankAmountToPool; i++)
         {
@@ -72,5 +72,5 @@ public class PoolManager : MonoBehaviour
         bullet.transform.position = transform.position;
         PooledBullets.Enqueue(bullet);
     }
-    
+
 }

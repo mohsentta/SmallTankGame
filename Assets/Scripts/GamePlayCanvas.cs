@@ -55,7 +55,7 @@ public class GamePlayCanvas : MonoBehaviour
             ComboPanelImage.gameObject.SetActive(false);
         }
 
-        ComboText.text = "combo \n x" + GameControl.GameControlInstance.Combo.ToString().Replace("0" , "O");
+        ComboText.text = "combo \n x" + GameControl.GameControlInstance.Combo.ToString().Replace("0", "O");
     }
 
     private bool _isTriggerCalled;
@@ -82,7 +82,7 @@ public class GamePlayCanvas : MonoBehaviour
 
     private void UpdateEnergyBar()
     {
-        EnergyBarAmountImage.transform.localScale = new Vector3(GameControl.GameControlInstance.CurrentEnergy , 1 ,1);
+        EnergyBarAmountImage.transform.localScale = new Vector3(GameControl.GameControlInstance.CurrentEnergy, 1, 1);
     }
 
 
@@ -90,13 +90,13 @@ public class GamePlayCanvas : MonoBehaviour
     {
         EndPanel.SetActive(true);
 
-        EndScore.text ="Score: " + GameControl.GameControlInstance.Score.ToString().Replace("0" , "O");
-        if (GameControl.GameControlInstance.Score > PlayerPrefs.GetInt("HighScore" , 0))
+        EndScore.text = "Score: " + GameControl.GameControlInstance.Score.ToString().Replace("0", "O");
+        if (GameControl.GameControlInstance.Score > PlayerPrefs.GetInt("HighScore", 0))
         {
-            PlayerPrefs.SetInt("HighScore" , (int) GameControl.GameControlInstance.Score);
+            PlayerPrefs.SetInt("HighScore", (int)GameControl.GameControlInstance.Score);
         }
 
-        EndHighScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString().Replace("0" , "O");
+        EndHighScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString().Replace("0", "O");
     }
 
     public void Restart()

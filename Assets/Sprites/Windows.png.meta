@@ -168,7 +168,7 @@ TextureImporter:
       213: 21300108
     second: Windows_54
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -188,6 +188,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -196,12 +198,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -219,10 +221,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -250,6 +256,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1428,6 +1446,62 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Windows_6: 21300012
+      Windows_50: 21300100
+      Windows_34: 21300068
+      Windows_2: 21300004
+      Windows_22: 21300044
+      Windows_4: 21300008
+      Windows_8: 21300016
+      Windows_36: 21300072
+      Windows_44: 21300088
+      Windows_11: 21300022
+      Windows_41: 21300082
+      Windows_39: 21300078
+      Windows_29: 21300058
+      Windows_40: 21300080
+      Windows_20: 21300040
+      Windows_48: 21300096
+      Windows_1: 21300002
+      Windows_42: 21300084
+      Windows_54: 21300108
+      Windows_23: 21300046
+      Windows_33: 21300066
+      Windows_3: 21300006
+      Windows_18: 21300036
+      Windows_46: 21300092
+      Windows_28: 21300056
+      Windows_21: 21300042
+      Windows_43: 21300086
+      Windows_19: 21300038
+      Windows_10: 21300020
+      Windows_27: 21300054
+      Windows_31: 21300062
+      Windows_26: 21300052
+      Windows_38: 21300076
+      Windows_16: 21300032
+      Windows_47: 21300094
+      Windows_17: 21300034
+      Windows_25: 21300050
+      Windows_52: 21300104
+      Windows_7: 21300014
+      Windows_49: 21300098
+      Windows_24: 21300048
+      Windows_13: 21300026
+      Windows_53: 21300106
+      Windows_30: 21300060
+      Windows_12: 21300024
+      Windows_51: 21300102
+      Windows_37: 21300074
+      Windows_0: 21300000
+      Windows_35: 21300070
+      Windows_32: 21300064
+      Windows_9: 21300018
+      Windows_45: 21300090
+      Windows_15: 21300030
+      Windows_5: 21300010
+      Windows_14: 21300028
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
