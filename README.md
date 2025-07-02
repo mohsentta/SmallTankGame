@@ -39,17 +39,19 @@ No plans yet.
 
 ## License
 ### Permissions
-✔ Commercial use
+❌ Commercial use
 
 ✔ Modification
 
-✔ Distribution
+❌ Distribution
 
 ✔ Private use 
 
 ❌ Liability
 
 ❌ Warranty 
+
+✔ Educational Use
 
 
 ### Readme
