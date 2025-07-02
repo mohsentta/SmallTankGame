@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameControl : MonoBehaviour
 {
     [Header("Game settings")]
-    [Range(0,0.1f)]
+    [Range(0, 0.1f)]
     public float EnergyDecreasePerFrame;
 
     [Range(0, 0.1f)]
@@ -35,7 +35,7 @@ public class GameControl : MonoBehaviour
 
     public float TimeSpentThisGame;
 
-    public int Combo=1;
+    public int Combo = 1;
 
     static float MaxEnergy = 1;
 
@@ -47,7 +47,7 @@ public class GameControl : MonoBehaviour
 
     [HideInInspector]
     public GameObject[] SpawnAreas = new GameObject[0];
-    
+
     public float CurrentEnergy;
     [HideInInspector]
     public GameObject PlayerTank;
@@ -56,15 +56,15 @@ public class GameControl : MonoBehaviour
 
     private bool _isSpawnerLocked;
 
-    private float _currentComboTime =0;
+    private float _currentComboTime = 0;
 
     private float _comboLastDuration;
-    
+
     private float _currentLevelLeftTime;
-    
 
 
-    void Start ()
+
+    void Start()
     {
         CurrentLevel = 1;
 
@@ -78,25 +78,25 @@ public class GameControl : MonoBehaviour
         SpawnAreas = GameObject.FindGameObjectsWithTag(SpawnAreasTag);
         PlayerTank = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(SpawnEnemyPerFrame());
-        
+
 
     }
-	
-	// Update is called once per frame
-	void FixedUpdate ()
+
+    // Update is called once per frame
+    void FixedUpdate()
     {
         TimeSpentThisGame += Time.deltaTime;
 
         _currentLevelLeftTime -= Time.deltaTime;
 
-        if (_currentLevelLeftTime<0)
+        if (_currentLevelLeftTime < 0)
         {
             CurrentLevel++;
             _currentLevelLeftTime = LevelsDuration;
         }
 
-        CurrentEnergy -= (EnergyDecreasePerFrame +  (EnergyLossGrowPerLevel * CurrentLevel)) * Time.deltaTime  * EnemiesLeft;
-        
+        CurrentEnergy -= (EnergyDecreasePerFrame + (EnergyLossGrowPerLevel * CurrentLevel)) * Time.deltaTime * EnemiesLeft;
+
         if (CurrentEnergy <= 0)
         {
             CurrentEnergy = 0;
@@ -106,10 +106,10 @@ public class GameControl : MonoBehaviour
 
         if (EnemiesLeft <= 0 || _timeLeftToSpawn <= 0 && !_isSpawnerLocked)
         {
-             StartCoroutine(SpawnEnemyPerFrame());
+            StartCoroutine(SpawnEnemyPerFrame());
             _timeLeftToSpawn = DelayBetweenEverySpawn;
         }
-        
+
 
 
         //update combo time:
@@ -148,7 +148,7 @@ public class GameControl : MonoBehaviour
         else if (CurrentEnergy < 0)
         {
             CurrentEnergy = 0;
-           
+
         }
     }
 
@@ -185,7 +185,7 @@ public class GameControl : MonoBehaviour
     public float GetComboTime()
     {
         float comboTime = 0;
-        
+
         comboTime = _currentComboTime / _comboLastDuration;
 
         return comboTime;
@@ -205,7 +205,7 @@ public class GameControl : MonoBehaviour
             {
                 var enemyTank = PoolManager.Instance.GetATank().GetComponent<EnemyTank>();
 
-                int randomized = Random.Range(0,2);
+                int randomized = Random.Range(0, 2);
 
                 switch (randomized)
                 {
@@ -225,7 +225,7 @@ public class GameControl : MonoBehaviour
                     Random.Range(spawnAreaRenderer.bounds.min.z,
                         spawnAreaRenderer.bounds.max.z)
                 );
-                
+
                 while (Physics.CheckBox(spawnPosition, Vector3.one * 1.5f, enemyTank.transform.rotation, TankLayers))
                 {
                     spawnPosition = new Vector3(Random.Range(spawnAreaRenderer.bounds.min.x,
@@ -234,7 +234,7 @@ public class GameControl : MonoBehaviour
                         Random.Range(spawnAreaRenderer.bounds.min.z,
                             spawnAreaRenderer.bounds.max.z));
                     yield return new WaitForEndOfFrame();
-                    
+
                 }
 
                 enemyTank.transform.position = spawnPosition;
@@ -246,7 +246,7 @@ public class GameControl : MonoBehaviour
                 yield return new WaitForEndOfFrame();
 
             }
-            
+
         }
 
         _isSpawnerLocked = false;
@@ -256,7 +256,7 @@ public class GameControl : MonoBehaviour
 
     void OnApplicationFocus(bool hasFocus)
     {
-        if (!hasFocus&&Score > PlayerPrefs.GetInt("HighScore" , 0))
+        if (!hasFocus && Score > PlayerPrefs.GetInt("HighScore", 0))
         {
             PlayerPrefs.SetInt("HighScore", (int)GameControl.GameControlInstance.Score);
         }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyTank : MonoBehaviour
 {
-    public float BaseHp=1;
-    [Range(0,1)]
+    public float BaseHp = 1;
+    [Range(0, 1)]
     public float EnergyReward;
     public float ScoreReward;
 
@@ -19,7 +19,7 @@ public class EnemyTank : MonoBehaviour
 
     void Awake()
     {
-        _anim = this.GetComponent < Animator>();
+        _anim = this.GetComponent<Animator>();
     }
 
     // Use this for initialization
@@ -55,7 +55,7 @@ public class EnemyTank : MonoBehaviour
 
     public void Explode()
     {
-        
+
         _anim.SetTrigger("Explode");
         GameControl.GameControlInstance.ChangeEnergy(+EnergyReward);
         GameControl.GameControlInstance.AddScore(ScoreReward);
